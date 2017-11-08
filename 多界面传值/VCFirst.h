@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  VCFirst.h
 //  多界面传值
 //
 //  Created by zh dk on 2017/8/28.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VCSecond.h"
 
-@interface ViewController : UIViewController
+@interface VCFirst : UIViewController<VCSecondDelegate>
 
+-(void) changeColor:(UIColor *)color;
 
 @end
-

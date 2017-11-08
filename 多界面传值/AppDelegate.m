@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "VCFirst.h"
+#import "VCThird.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    
+    VCFirst *vcF = [[VCFirst alloc] init];
+    vcF.title = @"视图1";
+    vcF.view.backgroundColor = [UIColor whiteColor];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vcF];
+    
+    
+    VCThird *vcT = [[VCThird alloc]init];
+    vcT.title = @"视图3";
+    vcT.view.backgroundColor = [UIColor greenColor];
+    
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:vcT];
+    
+    NSArray *array = [NSArray arrayWithObjects:nav,nav2, nil];
+    
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    tabVC.viewControllers = array;
+    self.window.rootViewController = tabVC;;
+    
     return YES;
 }
 
